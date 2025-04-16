@@ -5,6 +5,7 @@ let timerInterval = null;
 let quizIndex = 0;
 let quizScore = 0;
 let totalQuestions = 5;
+let timePerQuestion = 20;
 let backToStartBtn;
 
 function saveProgress() {
@@ -87,7 +88,7 @@ window.addEventListener("DOMContentLoaded", () => {
       const dropdown = document.getElementById("question-count");
       totalQuestions = parseInt(dropdown.value);
       const difficulty = document.getElementById("difficulty").value;
-      let timePerQuestion = 20;
+      timePerQuestion = 20;
 
       if (difficulty === "easy") {
         timePerQuestion = 60;
@@ -144,7 +145,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   
     const difficulty = document.getElementById("difficulty").value;
-    let timePerQuestion = 20;
+    timePerQuestion = 20;
     if (difficulty === "easy") timePerQuestion = 60;
     else if (difficulty === "medium") timePerQuestion = 40;
   
@@ -282,7 +283,7 @@ function startQuizTimer() {
     }
 
     if (timerBar) {
-      const percent = (timeLeft / (totalQuestions * 20)) * 100;
+      const percent = (timeLeft / (totalQuestions * timePerQuestion)) * 100;
       timerBar.style.width = `${percent}%`;
 
       if (timeLeft <= 20) {

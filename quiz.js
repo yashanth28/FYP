@@ -105,6 +105,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
       quizIndex = 0;
       quizScore = 0;
+      window.reviewData = [];
       clearInterval(timerInterval);
 
       startQuizTimer();
@@ -121,6 +122,7 @@ window.addEventListener("DOMContentLoaded", () => {
   restartBtn.addEventListener("click", () => {
     quizIndex = 0;
     quizScore = 0;
+    window.reviewData = [];
   
     const quizBox = document.getElementById("quiz-box");
     quizBox.innerHTML = `
